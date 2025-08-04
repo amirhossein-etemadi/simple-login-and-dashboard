@@ -1,29 +1,38 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonProps } from "@/lib/types/button/type";
+import { forwardRef } from "react";
+import styles from "./styles.module.scss";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-}
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      children,
+      width,
+      height,
+      className,
+      disabled,
+      isLoading = false,
+      ...props
+    },
+    ref
+  ) => {
+    const loader = <div className={styles["loader"]}></div>;
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
-  // Simplified inline styles.
-  const buttonStyle: React.CSSProperties = {
-    width: "100%",
-    padding: "0.75rem 1rem",
-    borderRadius: "0.5rem",
-    backgroundColor: "#3B82F6",
-    color: "white",
-    fontSize: "1rem",
-    fontWeight: 600,
-    border: "none",
-    cursor: "pointer",
-    transition: "background-color 0.2s",
-  };
+    return (
+      <button
+        ref={ref}
+        className={`${styles["button-style"]} ${
+          disabled || isLoading ? "disabled" : ""
+        } ${className || ""}`}
+        style={{ width, height }}
+        disabled={disabled || isLoading}
+        {...props}
+      >
+        {isLoading ? loader : children}
+      </button>
+    );
+  }
+);
 
-  return (
-    <button style={buttonStyle} {...props}>
-      {children}
-    </button>
-  );
-};
+Button.displayName = "Button";
 
 export default Button;

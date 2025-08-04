@@ -1,16 +1,11 @@
-$color-primary: #0059eb;
+$color-primary: #0a66c2;
 $color-secondary: #8800ff;
-$color-tertiary: #d200e5;
-$color-dark-blue: #003385;
+$color-error: #dc0000;
+
+// default font size
+$font-size: calc(0.9vw + 1rem);
+
 $color-text: #444;
-$color-white: #fff;
-$color-gray-light: #d7d1d14d;
-$color-gray: #555;
-$color-gray-dark: #333;
-$radius-lg: 2.8rem;
-$radius-md: 0.8rem;
-$margin-hero-negative: -10.5%;
-$height-footer: 45rem;
 $width-img-org: clamp(10rem, 15vw, 20rem);
 $font-title-size: clamp(3rem, 3vw, 5.6rem);
 $font-text-size: clamp(1.8rem, 2vw, 4rem);

@@ -1,11 +1,16 @@
 import React, { forwardRef } from "react";
 import styles from "./styles.module.scss";
-import { InputProps } from "./type";
+import { InputProps } from "@/lib/types/input/type";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, type = "text", height, ...props }, ref) => {
+  ({ label, error, type = "text", width, height, disabled, ...props }, ref) => {
     return (
-      <div className={styles["input-container"]} style={{ height }}>
+      <div
+        className={`${styles["input-container"]} ${
+          disabled ? "disabled" : null
+        }`}
+        style={{ width, height }}
+      >
         <input
           id={props.name}
           ref={ref}

@@ -1,10 +1,5 @@
 import { z } from "zod";
 
-/**
- * Defines the validation rules for the form.
- * - phoneNumber: A required string that must match the regex for an
- * 11-digit Iranian mobile number starting with "09".
- */
 export const formSchema = z.object({
   phoneNumber: z
     .string()
@@ -14,5 +9,18 @@ export const formSchema = z.object({
     }),
 });
 
-// This creates a TypeScript type from the Zod schema to use in our components.
 export type TFormSchema = z.infer<typeof formSchema>;
+
+export const loginSchema = z.object({
+  phoneNumber: z
+    .string()
+    .min(1, { message: "شماره تلفن الزامی است" })
+    .regex(/^09\d{9}$/, {
+      message: "لطفا یک شماره تلفن معتبر ایرانی وارد کنید",
+    }),
+  password: z
+    .string()
+    .min(8, { message: "رمز ورود باید حداقل ۸ کاراکتر باشد" }),
+});
+
+export type TLoginSchema = z.infer<typeof loginSchema>;
