@@ -1,0 +1,30 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --sidebar: #ccc;
+  --primary: #0059eb;
+  --textPrimary: #fff;
+}
+
+html,
+body {
+  direction: rtl;
+  font-size: 62.5% !important;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #f2f2f7;
+}
+
+// Example of how you would add dark mode theming here
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --background: #1e1e1e;
+//     --foreground: #ededed;
+//     --sidebar: #4d4d4d5e;
+//   }
+//   html {
+//     color-scheme: dark;
+//   }
+// }

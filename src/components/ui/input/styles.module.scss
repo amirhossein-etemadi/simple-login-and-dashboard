@@ -1,0 +1,65 @@
+$font-size: calc(1vw + 1rem);
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .input-style {
+    width: 100%;
+    height: 100%;
+    padding: 0.75rem;
+    border: 0.1rem solid #797883;
+    border-radius: 0.5rem;
+    font-size: $font-size;
+    transition: border-color 0.2s;
+
+    &[type="number"] {
+      appearance: textfield;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    &:focus + .label-style,
+    &:not(:placeholder-shown) + .label-style {
+      top: -0.5rem;
+      scale: 0.85;
+      //   color: #3b82f6;
+      transform: translateY(0);
+      font-size: calc(0.5vw + 1rem);
+    }
+  }
+
+  .label-style {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    scale: 1;
+    color: #6b7280;
+    background-color: white;
+    padding: 0 0.25rem;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    transform-origin: top right;
+    font-size: $font-size;
+  }
+
+  .error-style {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    min-height: 1rem;
+  }
+}
