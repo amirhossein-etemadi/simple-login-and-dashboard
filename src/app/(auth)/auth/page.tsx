@@ -32,7 +32,9 @@ const Login = () => {
     console.log("Form submitted with:", data);
 
     try {
-      const response = await fetch("https://randomuser.me/api/");
+      const response = await fetch(
+        "https://randomuser.me/api/?results=1&nat=us"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch user data.");
       }
