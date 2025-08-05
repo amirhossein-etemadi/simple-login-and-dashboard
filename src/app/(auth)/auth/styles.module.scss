@@ -31,4 +31,20 @@
       height: auto;
     }
   }
+
+  @media (max-width: 767px) {
+    justify-content: center;
+
+    .login-form {
+      width: 90%;
+    }
+
+    .login-page-image {
+      flex: 0;
+
+      .page-image {
+        display: none;
+      }
+    }
+  }
 }

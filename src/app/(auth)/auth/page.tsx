@@ -43,7 +43,7 @@ const Login = () => {
       router.push("/dashboard");
     } catch (error) {
       console.error("Login process failed:", error);
-      setApiError("خطایی در ورود رخ داد. لطفاً دوباره تلاش کنید.");
+      setApiError("An error occurred while logging in. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -53,11 +53,11 @@ const Login = () => {
     <div className={styles["login-page-container"]}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles["login-form"]}>
         <h1 className={styles["form-title"]}>
-          <strong>صفحه ورود</strong>
+          <strong>Login</strong>
         </h1>
 
         <Input
-          label={"شماره تلفن"}
+          label={"phone number"}
           type="tel"
           {...register("phoneNumber")}
           error={errors.phoneNumber?.message}
@@ -65,7 +65,7 @@ const Login = () => {
         />
 
         <Input
-          label={"رمز ورود"}
+          label={"password"}
           type="password"
           {...register("password")}
           error={errors.password?.message}
@@ -80,7 +80,7 @@ const Login = () => {
           isLoading={isLoading}
           width={formElementsWidth}
         >
-          ورود
+          submit
         </Button>
       </form>
 
